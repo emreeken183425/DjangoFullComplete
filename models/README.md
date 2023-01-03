@@ -39,6 +39,43 @@ SECRET_KEY = config('SECRET_KEY')
 9-python manage.py runserver
 
 
+*** shell comutları OOREM ***
+```
+python manage.py shell  # yazarak shell e gir
+exit() ile çıkış yapabilirsin
+from fscohort.modls import Student(models ismi databsede oluşturduğun tabloyu çağırdık)
+ print(Student) ile yazdırdık
+  s1=Student(first_name="victor",last_name="abc",number=5)databsede ki kolonlar yada modelsdeki isimler ile yei bir öğrenci oluşturduk
+  s1 yazarak terminalde gördük
+  s1.save() ile databese kaydettik
+s1.first_name="henry" ile first_name değiştirdik
+s1.save() ile databese kaydettik
+s2=Student.objects.create (first_name= 'kadir',last_name="abc",number=55 ) buşekilde save() e gerek kalmadan direkt kaydeder
+ alls=Student.objects.all()
+ alls bu şekilde databsedeki tüm bilgileri görebiliriz
+for x in alls:x  bu şekilde döngü ile de çağırabiliriz
+g1=Student.objects.get(number=55) #aynı numaradan fazla varsa filter kullanırız
+g1 buşeklide numarası 55 olan kişiyi getirdik
+ f1=Student.objects.filter(number=77)
+>>> f1  aynı numaradan fazla varsa filter kullanırız
+ f2=Student.objects.exclude(number=55)
+>>> f2 bu şekilde numarası 55 olmayanları getirdik exclude fonksiyonu ile
+ f3=Student.objects.filter(first_name__startswith="E") 
+>>> f3 baş harfi e ile başlayanları getir örneği
+f3=Student.objects.filter(last_name__startswith="E")  
+>>> f3 burada ise last namei e ile başlayanlar getirilir
+f4=Student.objects.filter(last_name__endswith="E")  
+>>> f4 burada ise last namei e ile BİTEN getirir.
+ 
+
+```
+
+pip install pillow resim yüklemek için indirmemiz gereken paket
+MEDIA_URL='media/' setting.py a da bunu yazman gerekli main settings.py
+sonra main urls.py a gidip 
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns +=static(settings.MEDIA_URL,document_roor=settings.MEDIA_ROOT) bunu yaz
 
 Templates
 Variables: {{ variable }}
