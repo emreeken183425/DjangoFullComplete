@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'fscohort',
+   'relations',
 ]
 
 MIDDLEWARE = [
@@ -73,11 +74,17 @@ WSGI_APPLICATION = "main.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+#  pip install psycopg2  postgresql için bu ve aşağıdaki bağlantı
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+       'ENGINE': 'django.db.backends.postgresql',
+        "NAME": "models",# databse ismini buraya
+        "USER":"postgres",#login username
+        "PASSWORD":"183425",# GİRİŞ ŞİFREN
+        "HOST":"localhost",
+        "PORT":"5433",
+        
     }
 }
 

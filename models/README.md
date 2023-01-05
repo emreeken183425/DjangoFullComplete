@@ -77,6 +77,26 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns +=static(settings.MEDIA_URL,document_roor=settings.MEDIA_ROOT) bunu yaz
 
+
+**** DATABSE İLE BAĞLANMA NASIL*****
+# Database
+# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+#  pip install psycopg2  postgresql için bu İNECEK ve aşağıdaki bağlantı
+ MAİNDEKİ STTİNGS.PY A AŞAĞIDAKİ BAĞLAANTILARI EKLE DOLDUR
+DATABASES = {
+    "default": {
+       'ENGINE': 'django.db.backends.postgresql',
+        "NAME": "models",# databse ismini buraya
+        "USER":"postgres",#login username
+        "PASSWORD":"183425",# GİRİŞ ŞİFREN
+        "HOST":"localhost",
+        "PORT":"5433",
+        
+    }
+}
+YUKARIDAKİLERDEN SONRA DATABSE KAYIT İÇİN python manage.py migrate YAP
+
+
 Templates
 Variables: {{ variable }}
 Tags: {% tag %}
