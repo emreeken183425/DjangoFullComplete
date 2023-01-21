@@ -69,7 +69,8 @@ f4=Student.objects.filter(last_name__endswith="E")
  
 
 ```
-
+# resim yükleme için aşağıdaki adımlar
+modelse avatar=models.ImageField('resim',blank=True,null=True,upload_to="meida/")# 
 pip install pillow resim yüklemek için indirmemiz gereken paket
 MEDIA_URL='media/' setting.py a da bunu yazman gerekli main settings.py
 sonra main urls.py a gidip 
